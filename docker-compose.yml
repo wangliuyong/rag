@@ -1,0 +1,13 @@
+# 使用 GHCR，避免国内访问 Docker Hub 时出现 TLS handshake timeout
+services:
+  qdrant:
+    image: ghcr.io/qdrant/qdrant/qdrant:v1.12.4
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    restart: unless-stopped
+
+volumes:
+  qdrant_storage:
