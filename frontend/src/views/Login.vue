@@ -24,7 +24,7 @@ async function onSubmit() {
     );
     auth.setSession(data.token, data.username);
     ElMessage.success("登录成功");
-    const redirect = (route.query.redirect as string) || "/documents";
+    const redirect = (route.query.redirect as string) || "/dashboard";
     router.replace(redirect);
   } catch {
     ElMessage.error("登录失败，请检查账号密码");
@@ -66,13 +66,30 @@ async function onSubmit() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  padding: 24px 16px;
+  background: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      rgba(55, 90, 130, 0.35),
+      transparent 55%
+    ),
+    linear-gradient(160deg, #0a0e14 0%, #0f1724 45%, #0c1018 100%);
 }
 .card {
-  width: 400px;
+  width: min(400px, 100%);
+  border-radius: var(--adm-radius, 12px);
+  border: 1px solid var(--el-border-color-lighter);
+  background: linear-gradient(
+    165deg,
+    rgba(28, 38, 56, 0.92) 0%,
+    rgba(18, 26, 40, 0.96) 100%
+  );
+  box-shadow: var(--adm-shadow, 0 4px 20px rgba(0, 0, 0, 0.28));
 }
 .title {
   margin: 0 0 16px;
   text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--el-text-color-primary);
 }
 </style>

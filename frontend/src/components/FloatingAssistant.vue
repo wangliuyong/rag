@@ -7,13 +7,15 @@ import ChatPanel from "./ChatPanel.vue";
 const route = useRoute();
 const drawerVisible = ref(false);
 
-/** 独立「智能问答」页已有完整面板，隐藏悬浮球避免重复 */
-const showFab = computed(() => route.name !== "chat");
+/** 问答页与仪表盘大屏隐藏悬浮球 */
+const showFab = computed(
+  () => route.name !== "chat" && route.name !== "dashboard"
+);
 
 watch(
   () => route.name,
   (name) => {
-    if (name === "chat") drawerVisible.value = false;
+    if (name === "chat" || name === "dashboard") drawerVisible.value = false;
   }
 );
 </script>

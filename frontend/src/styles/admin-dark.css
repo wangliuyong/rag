@@ -1,0 +1,95 @@
+/**
+ * B 端后台 — 低饱和蓝灰暗黑、分层卡片、轻阴影
+ * 需在 html 上挂 `dark`，并引入 element-plus dark/css-vars
+ */
+html.dark {
+  color-scheme: dark;
+  --adm-radius: 12px;
+  --adm-radius-sm: 10px;
+  --adm-shadow: 0 4px 20px rgba(0, 0, 0, 0.28);
+  --adm-shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.22);
+  --adm-glow: 0 0 0 1px rgba(100, 130, 160, 0.12);
+  --adm-side-bg: #111827;
+  --adm-side-border: rgba(148, 163, 184, 0.08);
+  --adm-top-bg: rgba(17, 24, 39, 0.92);
+  --adm-accent: #6b8fb8;
+  --adm-accent-soft: rgba(107, 143, 184, 0.18);
+
+  --el-color-primary: #6b8fb8;
+  --el-color-primary-light-3: #8aa8c9;
+  --el-color-primary-light-5: #9eb6d0;
+  --el-color-primary-light-7: #b8c9db;
+  --el-color-primary-light-8: #c8d5e4;
+  --el-color-primary-light-9: #e8edf4;
+  --el-color-primary-dark-2: #5a7a9e;
+
+  --el-bg-color: #161f2e;
+  --el-bg-color-page: #0c1018;
+  --el-bg-color-overlay: #1a2436;
+  --el-fill-color-blank: #141c2a;
+  --el-fill-color-light: #1c2638;
+  --el-fill-color-lighter: #222d42;
+  --el-fill-color-extra-light: #28334a;
+
+  --el-border-color: rgba(100, 116, 139, 0.22);
+  --el-border-color-light: rgba(100, 116, 139, 0.16);
+  --el-border-color-lighter: rgba(100, 116, 139, 0.12);
+  --el-border-color-extra-light: rgba(100, 116, 139, 0.08);
+
+  --el-text-color-primary: #e8edf4;
+  --el-text-color-regular: #c4cdd9;
+  --el-text-color-secondary: #94a3b8;
+  --el-text-color-placeholder: #64748b;
+
+  --el-box-shadow: var(--adm-shadow);
+  --el-box-shadow-light: var(--adm-shadow-sm);
+  --el-box-shadow-lighter: var(--adm-glow);
+}
+
+html.dark body {
+  background: radial-gradient(
+      ellipse 120% 80% at 50% -20%,
+      rgba(55, 80, 120, 0.22),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #0a0e14 0%, #0c1018 40%, #0a0d12 100%);
+  color: var(--el-text-color-regular);
+}
+
+html.dark .el-card {
+  border-radius: var(--adm-radius);
+  border: 1px solid var(--el-border-color-lighter);
+  background: linear-gradient(
+    165deg,
+    rgba(28, 38, 56, 0.96) 0%,
+    rgba(18, 26, 40, 0.98) 100%
+  );
+  box-shadow: var(--adm-shadow-sm);
+}
+
+html.dark .el-table {
+  --el-table-border-color: var(--el-border-color-extra-light);
+  --el-table-header-bg-color: rgba(22, 31, 46, 0.95);
+  --el-table-row-hover-bg-color: rgba(107, 143, 184, 0.08);
+}
+
+html.dark .el-button--primary {
+  --el-button-bg-color: #5a7a9e;
+  --el-button-border-color: #5a7a9e;
+  --el-button-hover-bg-color: #6b8fb8;
+  --el-button-hover-border-color: #6b8fb8;
+}
+
+html.dark .el-input__wrapper {
+  box-shadow: 0 0 0 1px var(--el-border-color) inset;
+}
+
+html.dark .el-dialog {
+  border-radius: var(--adm-radius);
+  border: 1px solid var(--el-border-color-lighter);
+  box-shadow: var(--adm-shadow), 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+html.dark .el-drawer {
+  --el-drawer-bg-color: #121a28;
+}
