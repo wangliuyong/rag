@@ -159,9 +159,9 @@ function statusText(status: DocItem["status"]) {
               <span class="search-prefix" aria-hidden="true" />
             </template>
           </el-input>
-          <span v-if="totalCount > 0" class="toolbar-meta">
+          <!-- <span v-if="totalCount > 0" class="toolbar-meta">
             显示 <strong>{{ filteredCount }}</strong> / {{ totalCount }} 条
-          </span>
+          </span> -->
         </div>
         <div class="toolbar-actions">
           <el-button size="large" :loading="loading" @click="load">
