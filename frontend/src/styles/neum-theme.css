@@ -93,7 +93,7 @@ body {
 
 .nm-app .el-button--primary {
   background: linear-gradient(145deg, #d4caeb, var(--nm-primary));
-  color: #fff;
+  color:  var(--nm-primary);
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
 
@@ -149,7 +149,7 @@ body {
 }
 
 .nm-app .el-table__body tr:hover > td.el-table__cell {
-  background: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255) !important;
 }
 
 .nm-app .el-dialog {
