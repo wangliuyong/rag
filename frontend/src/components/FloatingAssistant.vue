@@ -24,8 +24,16 @@ watch(
       <RobotIcon :size="30" />
     </button>
 
-    <el-drawer v-model="drawerVisible" direction="rtl" size="min(440px, 100vw)" :with-header="false"
-      :destroy-on-close="false" append-to-body class="assistant-drawer-wrap" body-class="assistant-drawer-body">
+    <el-drawer
+      v-model="drawerVisible"
+      direction="rtl"
+      size="min(440px, 100vw)"
+      :with-header="false"
+      :destroy-on-close="false"
+      append-to-body
+      class="assistant-drawer-wrap assistant-drawer-shell"
+      body-class="assistant-drawer-body"
+    >
       <ChatPanel variant="drawer" />
     </el-drawer>
   </Teleport>
@@ -34,17 +42,23 @@ watch(
 <style scoped>
 .fab-assistant {
   position: fixed;
-  right: 20px;
-  bottom: 24px;
+  right: 22px;
+  bottom: 26px;
   z-index: 2000;
-  width: 56px;
-  height: 56px;
+  width: 58px;
+  height: 58px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   color: #fff;
-  background: linear-gradient(145deg, var(--el-color-primary), var(--el-color-primary-dark-2));
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(
+    145deg,
+    var(--el-color-primary),
+    var(--el-color-primary-dark-2)
+  );
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--el-bg-color) 85%, transparent),
+    0 6px 22px rgba(15, 23, 42, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,8 +66,10 @@ watch(
 }
 
 .fab-assistant:hover {
-  transform: scale(1.06);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+  transform: scale(1.05);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--el-bg-color) 85%, transparent),
+    0 10px 28px rgba(15, 23, 42, 0.22);
 }
 
 .fab-assistant:active {
@@ -77,5 +93,11 @@ watch(
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.assistant-drawer-shell.el-drawer.rtl {
+  border-radius: 16px 0 0 16px;
+  overflow: hidden;
+  box-shadow: -16px 0 48px rgba(15, 23, 42, 0.14);
 }
 </style>
