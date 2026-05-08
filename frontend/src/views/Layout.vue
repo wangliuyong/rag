@@ -14,21 +14,7 @@ function logout() {
 
 <template>
   <el-container class="layout">
-    <el-header class="header">
-      <div class="brand">制度文档问答</div>
-      <el-menu
-        :default-active="route.path"
-        mode="horizontal"
-        router
-        class="menu"
-      >
-        <el-menu-item index="/documents">文档管理</el-menu-item>
-        <el-menu-item index="/chat">智能问答</el-menu-item>
-      </el-menu>
-      <div class="spacer" />
-      <span class="user">{{ auth.username }}</span>
-      <el-button type="primary" link @click="logout">退出</el-button>
-    </el-header>
+
     <el-main class="main">
       <RouterView />
     </el-main>
@@ -39,27 +25,33 @@ function logout() {
 .layout {
   height: 100%;
 }
+
 .header {
   display: flex;
   align-items: center;
   gap: 16px;
   border-bottom: 1px solid var(--el-border-color);
 }
+
 .brand {
   font-weight: 600;
   white-space: nowrap;
 }
+
 .menu {
   flex: 0 1 auto;
   border-bottom: none;
 }
+
 .spacer {
   flex: 1;
 }
+
 .user {
   color: var(--el-text-color-secondary);
   font-size: 14px;
 }
+
 .main {
   padding: 16px;
   background: var(--el-bg-color-page);

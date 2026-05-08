@@ -79,12 +79,12 @@ async function reindex(row: DocItem) {
 
 function statusTag(status: DocItem["status"]) {
   const map: Record<DocItem["status"], "info" | "warning" | "success" | "danger"> =
-    {
-      pending: "info",
-      indexing: "warning",
-      ready: "success",
-      failed: "danger",
-    };
+  {
+    pending: "info",
+    indexing: "warning",
+    ready: "success",
+    failed: "danger",
+  };
   return map[status];
 }
 
@@ -103,20 +103,14 @@ function statusText(status: DocItem["status"]) {
   <el-card shadow="never">
     <template #header>
       <div class="header-row">
-        <span>制度文档</span>
+        <span>文档上传</span>
         <el-button type="primary" link :loading="loading" @click="load">
           刷新
         </el-button>
       </div>
     </template>
 
-    <el-upload
-      class="uploader"
-      drag
-      :show-file-list="false"
-      :http-request="customUpload"
-      accept=".pdf,.docx"
-    >
+    <el-upload class="uploader" drag :show-file-list="false" :http-request="customUpload" accept=".pdf,.docx">
       <div class="upload-inner">
         <div class="upload-title">拖拽文件到此处</div>
         <div class="upload-sub">或 <em>点击选择</em> PDF / DOCX</div>
@@ -149,16 +143,8 @@ function statusText(status: DocItem["status"]) {
       </el-table-column>
     </el-table>
 
-    <el-alert
-      v-for="row in items.filter((i) => i.status === 'failed')"
-      :key="row.id"
-      class="mt"
-      type="error"
-      :title="row.original_name"
-      :description="row.error_message || '未知错误'"
-      show-icon
-      :closable="false"
-    />
+    <el-alert v-for="row in items.filter((i) => i.status === 'failed')" :key="row.id" class="mt" type="error"
+      :title="row.original_name" :description="row.error_message || '未知错误'" show-icon :closable="false" />
   </el-card>
 </template>
 
@@ -168,22 +154,27 @@ function statusText(status: DocItem["status"]) {
   align-items: center;
   justify-content: space-between;
 }
+
 .uploader {
   width: 100%;
 }
+
 .upload-inner {
   padding: 24px 0;
   text-align: center;
   color: var(--el-text-color-regular);
 }
+
 .upload-title {
   font-size: 16px;
   margin-bottom: 8px;
 }
+
 .upload-sub em {
   color: var(--el-color-primary);
   font-style: normal;
 }
+
 .mt {
   margin-top: 16px;
 }
