@@ -50,15 +50,9 @@ watch(
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  color: #fff;
-  background: linear-gradient(
-    145deg,
-    var(--el-color-primary),
-    var(--el-color-primary-dark-2)
-  );
-  box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--el-bg-color) 85%, transparent),
-    0 6px 22px rgba(15, 23, 42, 0.2);
+  color: var(--nm-primary-deep, #9b8cc4);
+  background: linear-gradient(145deg, #f4f6fb, #e4e9f2);
+  box-shadow: var(--nm-raise);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,14 +60,20 @@ watch(
 }
 
 .fab-assistant:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--el-bg-color) 85%, transparent),
-    0 10px 28px rgba(15, 23, 42, 0.22);
+  transform: scale(1.04);
+  filter: brightness(1.02);
 }
 
 .fab-assistant:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+  box-shadow: var(--nm-press);
+}
+
+@media (max-width: 768px) {
+  .fab-assistant {
+    right: 16px;
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
 }
 </style>
 
@@ -96,8 +96,8 @@ watch(
 }
 
 .assistant-drawer-shell.el-drawer.rtl {
-  border-radius: 16px 0 0 16px;
+  border-radius: var(--nm-radius-lg, 22px) 0 0 var(--nm-radius-lg, 22px);
   overflow: hidden;
-  box-shadow: -16px 0 48px rgba(15, 23, 42, 0.14);
+  box-shadow: -12px 0 40px rgba(120, 130, 155, 0.18);
 }
 </style>

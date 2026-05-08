@@ -24,7 +24,7 @@ async function onSubmit() {
     );
     auth.setSession(data.token, data.username);
     ElMessage.success("登录成功");
-    const redirect = (route.query.redirect as string) || "/documents";
+    const redirect = (route.query.redirect as string) || "/dashboard";
     router.replace(redirect);
   } catch {
     ElMessage.error("登录失败，请检查账号密码");
@@ -36,7 +36,7 @@ async function onSubmit() {
 
 <template>
   <div class="wrap">
-    <el-card class="card" shadow="hover">
+    <el-card class="card" shadow="never">
       <h2 class="title">管理员登录</h2>
       <el-form :model="form" label-width="72px" @submit.prevent="onSubmit">
         <el-form-item label="账号">
@@ -63,16 +63,22 @@ async function onSubmit() {
 <style scoped>
 .wrap {
   min-height: 100%;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  padding: calc(20px + env(safe-area-inset-top)) 20px calc(20px + env(safe-area-inset-bottom));
+  background: linear-gradient(165deg, #e8ecf4 0%, #ebe7f2 50%, #e6eaf0 100%);
 }
 .card {
-  width: 400px;
+  width: min(400px, 100%);
 }
 .title {
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--nm-text, #4a5162);
 }
 </style>

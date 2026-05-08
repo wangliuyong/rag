@@ -331,10 +331,10 @@ function statusText(status: DocItem["status"]) {
   justify-content: center;
   min-width: 88px;
   padding: 12px 16px;
-  border-radius: 14px;
-  background: var(--el-bg-color);
-  border: 1px solid var(--el-border-color-lighter);
-  box-shadow: var(--el-box-shadow-lighter);
+  border-radius: var(--nm-radius-sm, 14px);
+  background: linear-gradient(145deg, var(--nm-surface-2, #f2f5fa), var(--nm-surface, #eef1f7));
+  border: none;
+  box-shadow: var(--nm-raise-sm);
 }
 
 .stat-value {
@@ -351,12 +351,10 @@ function statusText(status: DocItem["status"]) {
 }
 
 .surface-card {
-  border-radius: 16px;
-  border: 1px solid var(--el-border-color-lighter);
-  background: var(--el-bg-color);
-  box-shadow:
-    0 1px 2px rgba(15, 23, 42, 0.04),
-    0 12px 40px -12px rgba(15, 23, 42, 0.08);
+  border-radius: var(--nm-radius-lg, 22px);
+  border: none;
+  background: linear-gradient(145deg, var(--nm-surface-2, #f2f5fa), var(--nm-surface, #eef1f7));
+  box-shadow: var(--nm-raise);
 }
 
 .surface-card :deep(.el-card__body) {
@@ -584,7 +582,7 @@ function statusText(status: DocItem["status"]) {
 
 .dialog-uploader :deep(.el-upload-dragger:hover .upload-graphic) {
   transform: scale(1.04);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--nm-raise-sm);
 }
 
 .upload-text {

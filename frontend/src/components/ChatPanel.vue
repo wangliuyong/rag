@@ -214,15 +214,13 @@ const suggestions = [
 .chat-shell {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 56px - 32px);
+  height: calc(100dvh - 120px);
   max-width: 820px;
   margin: 0 auto;
-  background: var(--el-bg-color);
-  border-radius: 16px;
-  border: 1px solid var(--el-border-color-lighter);
-  box-shadow:
-    0 1px 2px rgba(15, 23, 42, 0.04),
-    0 16px 48px -16px rgba(15, 23, 42, 0.1);
+  background: linear-gradient(145deg, var(--nm-surface-2, #f2f5fa), var(--nm-surface, #eef1f7));
+  border-radius: var(--nm-radius-lg, 22px);
+  border: none;
+  box-shadow: var(--nm-raise);
   overflow: hidden;
 }
 
@@ -234,17 +232,14 @@ const suggestions = [
   border: none;
   box-shadow: none;
   min-height: 0;
+  background: linear-gradient(180deg, #f0f3fa, #e8ecf4);
 }
 
 .chat-top {
   flex-shrink: 0;
   padding: 0;
-  border-bottom: 1px solid var(--el-border-color-extra-light);
-  background: linear-gradient(
-    180deg,
-    var(--el-fill-color-blank) 0%,
-    var(--el-bg-color) 100%
-  );
+  border-bottom: none;
+  background: transparent;
 }
 
 .chat-top-inner {
@@ -266,19 +261,13 @@ const suggestions = [
   width: 52px;
   height: 52px;
   border-radius: 16px;
-  background: linear-gradient(
-    145deg,
-    var(--el-color-primary-light-7),
-    var(--el-color-primary-light-9)
-  );
-  color: var(--el-color-primary);
+  background: linear-gradient(145deg, #f2f5fa, #e4e9f2);
+  color: var(--nm-primary-deep, #9b8cc4);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
-    0 4px 14px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--nm-raise-sm);
 }
 
 .avatar-bot.sm {
@@ -287,9 +276,7 @@ const suggestions = [
   border-radius: 13px;
   align-self: flex-end;
   margin-bottom: 4px;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.5) inset,
-    0 2px 8px rgba(15, 23, 42, 0.06);
+  box-shadow: var(--nm-raise-sm);
 }
 
 .bot-svg {
@@ -373,12 +360,7 @@ const suggestions = [
   overflow-x: hidden;
   padding: 20px 18px 24px;
   min-height: 0;
-  background: linear-gradient(
-    165deg,
-    var(--el-fill-color-lighter) 0%,
-    var(--el-fill-color-extra-light) 38%,
-    var(--el-bg-color) 100%
-  );
+  background: linear-gradient(165deg, #eef1f7 0%, #e8ecf4 55%, #ebe8f1 100%);
 }
 
 .welcome {
@@ -392,18 +374,16 @@ const suggestions = [
   max-width: 440px;
   padding: 28px 22px 26px;
   text-align: center;
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--el-bg-color) 88%, transparent);
-  border: 1px solid var(--el-border-color-lighter);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.7) inset,
-    0 12px 40px -18px rgba(15, 23, 42, 0.12);
-  backdrop-filter: blur(8px);
+  border-radius: var(--nm-radius-lg, 22px);
+  background: rgba(255, 255, 255, 0.28);
+  border: none;
+  box-shadow: var(--nm-raise);
+  backdrop-filter: blur(14px);
 }
 
-@supports not (backdrop-filter: blur(8px)) {
+@supports not (backdrop-filter: blur(14px)) {
   .welcome-card {
-    background: var(--el-bg-color);
+    background: linear-gradient(145deg, #f4f6fb, #e8ecf4);
   }
 }
 
@@ -418,12 +398,8 @@ const suggestions = [
   height: 100%;
   border-radius: 22px;
   padding: 6px;
-  background: linear-gradient(
-    135deg,
-    var(--el-color-primary-light-5),
-    var(--el-color-primary-light-9)
-  );
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  background: linear-gradient(135deg, #ddd2f0, #e8ecf4);
+  box-shadow: var(--nm-raise-sm);
 }
 
 .welcome-avatar-ring .bot-svg-lg {
@@ -464,26 +440,27 @@ const suggestions = [
 
 .suggestion-chip {
   appearance: none;
-  border: 1px solid var(--el-border-color);
-  background: var(--el-bg-color);
-  color: var(--el-text-color-regular);
+  border: none;
+  background: linear-gradient(145deg, #f4f6fb, #e8ecf4);
+  color: var(--nm-text, #5c6478);
   font-size: 13px;
   line-height: 1.4;
   padding: 8px 14px;
   border-radius: 999px;
   cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.15s ease;
+  box-shadow: var(--nm-raise-sm);
+  transition: box-shadow 0.18s ease, transform 0.12s ease, color 0.15s ease;
 }
 
 .suggestion-chip:hover:not(:disabled) {
-  border-color: var(--el-color-primary-light-5);
-  color: var(--el-color-primary);
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  color: var(--nm-primary-deep, #9b8cc4);
+  box-shadow: var(--nm-raise);
   transform: translateY(-1px);
+}
+
+.suggestion-chip:active:not(:disabled) {
+  box-shadow: var(--nm-press);
+  transform: scale(0.99);
 }
 
 .suggestion-chip:disabled {
@@ -541,29 +518,19 @@ const suggestions = [
 }
 
 .bot-bubble {
-  background: color-mix(in srgb, var(--el-bg-color) 94%, var(--el-fill-color-dark));
-  color: var(--el-text-color-primary);
-  border: 1px solid var(--el-border-color-lighter);
-  border-bottom-left-radius: 5px;
-  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
-}
-
-@supports not (color: color-mix(in srgb, white 50%, black)) {
-  .bot-bubble {
-    background: var(--el-bg-color);
-  }
+  background: linear-gradient(145deg, #f6f8fc, #eef1f7);
+  color: var(--nm-text, #4a5162);
+  border: none;
+  border-bottom-left-radius: 6px;
+  box-shadow: var(--nm-raise-sm);
 }
 
 .user-bubble {
-  background: linear-gradient(
-    135deg,
-    var(--el-color-primary),
-    var(--el-color-primary-dark-2)
-  );
+  background: linear-gradient(135deg, #d4caeb, #b5a8d9);
   color: #fff;
   border: none;
-  border-bottom-right-radius: 5px;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12);
+  border-bottom-right-radius: 6px;
+  box-shadow: var(--nm-raise-sm);
 }
 
 .bubble-text {
@@ -575,12 +542,8 @@ const suggestions = [
   width: 42px;
   height: 42px;
   border-radius: 13px;
-  background: linear-gradient(
-    145deg,
-    var(--el-color-info-light-8),
-    var(--el-fill-color)
-  );
-  color: var(--el-color-info);
+  background: linear-gradient(145deg, #f2f5fa, #e4e9f2);
+  color: var(--nm-text-soft, #8a93a6);
   font-weight: 700;
   font-size: 15px;
   display: flex;
@@ -589,8 +552,8 @@ const suggestions = [
   flex-shrink: 0;
   align-self: flex-end;
   margin-bottom: 4px;
-  border: 1px solid var(--el-border-color-lighter);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  border: none;
+  box-shadow: var(--nm-raise-sm);
 }
 
 .typing {
@@ -633,9 +596,9 @@ const suggestions = [
 .composer-bar {
   flex-shrink: 0;
   padding: 0;
-  border-top: 1px solid var(--el-border-color-extra-light);
-  background: var(--el-bg-color);
-  box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.06);
+  border-top: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .composer-inner {
@@ -652,28 +615,12 @@ const suggestions = [
 }
 
 .composer-input :deep(.el-textarea__inner) {
-  border-radius: 14px;
-  padding: 12px 16px;
-  min-height: 46px;
-  line-height: 1.55;
-  font-size: 14px;
-  box-shadow: 0 0 0 1px var(--el-border-color) inset;
-  border: none;
-  transition: box-shadow 0.2s ease;
-}
-
-.composer-input :deep(.el-textarea__inner:hover) {
-  box-shadow: 0 0 0 1px var(--el-border-color-hover) inset;
-}
-
-.composer-input :deep(.el-textarea__inner:focus) {
-  box-shadow: 0 0 0 1px var(--el-color-primary-light-5) inset;
+  border-radius: var(--nm-radius-sm, 14px);
 }
 
 .send-btn {
   flex-shrink: 0;
   padding: 12px 24px;
   font-weight: 600;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
 }
 </style>

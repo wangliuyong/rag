@@ -5,8 +5,10 @@ import FloatingAssistant from "./components/FloatingAssistant.vue";
 
 <template>
   <el-config-provider namespace="el">
-    <RouterView />
-    <FloatingAssistant />
+    <div class="nm-app">
+      <RouterView />
+      <FloatingAssistant />
+    </div>
   </el-config-provider>
 </template>
 
@@ -14,7 +16,8 @@ import FloatingAssistant from "./components/FloatingAssistant.vue";
 html,
 body,
 #app {
-  height: 100%;
+  min-height: 100%;
+  min-height: 100dvh;
   margin: 0;
 }
 </style>
