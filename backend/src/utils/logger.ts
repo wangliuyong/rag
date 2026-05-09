@@ -1,6 +1,6 @@
 /** 应用级日志：开发环境美化输出，生产仅 JSON */
 import pino from "pino"; // 高性能结构化日志库
-import { getEnv } from "../config/env.js"; // 读取 NODE_ENV 决定日志级别与 transport
+import { getEnv } from "../config/env"; // 读取 NODE_ENV 决定日志级别与 transport
 
 /**
  * 模块加载时立即解析环境：若 .env 尚未就绪导致 getEnv 抛错，

@@ -1,16 +1,16 @@
 /** 索引管线：解析 → 切分 → 向量化 → 写入 Qdrant，并维护 documents 表状态 */
 import { v4 as uuidv4 } from "uuid"; // 每个向量点的唯一 id
-import { getDb } from "../store/db.js"; // 更新 documents 行状态
-import { parseDocument } from "./parser.js"; // PDF/DOCX 转文本
-import { splitText } from "./chunker.js"; // 长文本切块
-import { embedTexts } from "./embeddings.js"; // 批量 embedding
+import { getDb } from "../store/db"; // 更新 documents 行状态
+import { parseDocument } from "./parser"; // PDF/DOCX 转文本
+import { splitText } from "./chunker"; // 长文本切块
+import { embedTexts } from "./embeddings"; // 批量 embedding
 import {
   deleteByDocumentId,
   ensureCollection,
   upsertChunks,
-} from "./vectorStore.js"; // Qdrant 操作
-import { getEnv } from "../config/env.js"; // 向量维度
-import { logger } from "../utils/logger.js"; // 索引过程日志
+} from "./vectorStore"; // Qdrant 操作
+import { getEnv } from "../config/env"; // 向量维度
+import { logger } from "../utils/logger"; // 索引过程日志
 
 /** 内存中去重：同一 documentId 并发/重复调度时只跑一个 ingest */
 const processing = new Set<string>();

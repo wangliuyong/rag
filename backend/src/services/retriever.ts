@@ -1,6 +1,6 @@
 /** 检索服务：将用户问题向量化后在 Qdrant 中相似度搜索，拼成 LLM 上下文 */
-import { embedTexts } from "./embeddings.js"; // 单条查询向量化
-import { searchSimilar, type SearchHit } from "./vectorStore.js"; // 向量检索封装
+import { embedTexts } from "./embeddings"; // 单条查询向量化
+import { searchSimilar, type SearchHit } from "./vectorStore"; // 向量检索封装
 
 /** 默认取最相似的 K 条片段，平衡上下文长度与召回 */
 const TOP_K = 6;

@@ -4,7 +4,7 @@
 
 ## 技术栈
 
-- **后端**：Fastify + TypeScript + SQLite + Qdrant + 通义千问（DashScope OpenAI 兼容接口）
+- **后端**：NestJS（Express 适配器）+ TypeScript + SQLite + Qdrant + 通义千问（DashScope OpenAI 兼容接口）
 - **前端**：Vue 3 + Vite + Element Plus + Pinia
 - **包管理**：pnpm workspace
 
@@ -37,10 +37,10 @@ pnpm dev:frontend
 ```bash
 pnpm --filter frontend build
 pnpm --filter backend build
-node backend/dist/server.js
+node backend/dist/main.js
 ```
 
-将前端 `frontend/dist` 静态资源可由 Nginx 托管，或后续扩展 Fastify 托管静态文件。
+将前端 `frontend/dist` 静态资源可由 Nginx 托管，或由 Nest 静态模块等方式托管。
 
 ## API 摘要
 

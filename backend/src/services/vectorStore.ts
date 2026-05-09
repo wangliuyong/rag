@@ -1,7 +1,7 @@
 /** Qdrant 向量库封装：客户端单例、建集合、写入、检索、按文档删除 */
 import { QdrantClient } from "@qdrant/js-client-rest"; // 官方 REST 客户端
-import { getEnv } from "../config/env.js"; // QDRANT_URL、COLLECTION、维度等
-import { logger } from "../utils/logger.js"; // 建库信息日志
+import { getEnv } from "../config/env"; // QDRANT_URL、COLLECTION、维度等
+import { logger } from "../utils/logger"; // 建库信息日志
 
 /** 模块级复用客户端，减少连接开销 */
 let client: QdrantClient | null = null;

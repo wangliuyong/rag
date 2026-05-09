@@ -2,7 +2,7 @@
  * 不依赖 Qdrant / DashScope 的本地校验：切分与基础模块可加载。
  * 完整链路请在启动 Docker 与配置 .env 后手动验收。
  */
-import { splitText } from "../src/services/chunker.js";
+import { splitText } from "../src/services/chunker";
 
 const sample = `
 第一章 请假制度

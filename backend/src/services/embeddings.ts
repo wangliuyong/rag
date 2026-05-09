@@ -1,6 +1,6 @@
 /** 文本向量化：调用 DashScope embeddings 接口，按 API 限制分批与重试 */
-import { getEnv } from "../config/env.js"; // 模型、维度、密钥、URL
-import { logger } from "../utils/logger.js"; // 重试告警
+import { getEnv } from "../config/env"; // 模型、维度、密钥、URL
+import { logger } from "../utils/logger"; // 重试告警
 
 /** DashScope text-embedding-v3 等：单次请求 input 数组长度上限为 10 */
 const BATCH_SIZE = 10;

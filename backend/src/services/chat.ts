@@ -1,5 +1,5 @@
 /** 对话服务：调用 DashScope OpenAI 兼容流式接口，解析 SSE 行为 async generator */
-import { getEnv } from "../config/env.js"; // API Key、Base URL、模型名
+import { getEnv } from "../config/env"; // API Key、Base URL、模型名
 
 /** 流式输出给前端的单条事件联合类型 */
 export type StreamChunk =

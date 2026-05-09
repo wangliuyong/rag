@@ -1,8 +1,8 @@
 /** SQLite 连接与表结构迁移：单进程单例 */
 import Database from "better-sqlite3"; // 同步 SQLite 驱动，适合本服务负载模型
 import path from "node:path"; // 拼接数据库文件路径
-import { resolveDataDir, getEnv } from "../config/env.js"; // 数据目录与环境
-import { logger } from "../utils/logger.js"; // 连接成功日志
+import { resolveDataDir, getEnv } from "../config/env"; // 数据目录与环境
+import { logger } from "../utils/logger"; // 连接成功日志
 
 /** 模块级单例：避免重复打开同一 db 文件 */
 let db: Database.Database | null = null;
