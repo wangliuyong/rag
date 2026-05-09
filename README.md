@@ -4,7 +4,7 @@
 
 ## 技术栈
 
-- **后端**：NestJS（Express 适配器）+ TypeScript + SQLite + Qdrant + 通义千问（DashScope OpenAI 兼容接口）
+- **后端**：Koa + TypeScript + SQLite + Qdrant + 通义千问（DashScope OpenAI 兼容接口）
 - **前端**：Vue 3 + Vite + Element Plus + Pinia
 - **包管理**：pnpm workspace
 
@@ -37,10 +37,10 @@ pnpm dev:frontend
 ```bash
 pnpm --filter frontend build
 pnpm --filter backend build
-node backend/dist/main.js
+node backend/dist/server.js
 ```
 
-将前端 `frontend/dist` 静态资源可由 Nginx 托管，或由 Nest 静态模块等方式托管。
+将前端 `frontend/dist` 静态资源可由 Nginx 托管，或由任意静态文件服务器托管。
 
 ## API 摘要
 
@@ -52,6 +52,7 @@ node backend/dist/main.js
 | DELETE | `/api/documents/:id` | 删除文档与向量（需 JWT） |
 | POST | `/api/documents/:id/reindex` | 重建索引（需 JWT） |
 | POST | `/api/chat` | 流式问答 SSE（需 JWT，`Accept: text/event-stream`） |
+| GET | `/api/health` | 健康检查 |
 
 ## 模型说明
 
